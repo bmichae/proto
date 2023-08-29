@@ -1,0 +1,708 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Biblioteca Pública Amadeu Amaral</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        h1 {
+            font-size: 36px;
+            color: green;
+        }
+        h2 {
+            font-size: 24px;
+        }
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+        th, td {
+            text-align: left;
+            padding: 8px;
+        }
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+    <h1>Biblioteca Pública Amadeu Amaral</h1>
+    <h2>Lista de Livros</h2>
+    <input type="text" id="searchInput" placeholder="Pesquisar por título..."> 
+    <button onclick="searchTitle()">Pesquisar</button><br><br>
+    <button onclick="toggleColumn(0)">Mostrar/Ocultar Editora</button> 
+    <button onclick="toggleColumn(1)">Mostrar/Ocultar Título</button> 
+    <button onclick="toggleColumn(2)">Mostrar/Ocultar Autor</button> 
+    <table id="bookTable">
+        <tr>
+            <th>EDITORA</th>
+            <th>TÍTULO</th>
+            <th>AUTOR</th>
+        </tr>
+        <tr>
+            <td>ANITA GARIBALDI</td>
+            <td>DIALÉTICA RADICAL DO BRASIL NEGRO</td>
+            <td>MOURA, CLÓVIS</td>
+        </tr>
+        <tr>
+            <td>AUTÊNTICA</td>
+            <td>CLARA DOS ANJOS</td>
+            <td>BARRETO, LIMA</td>
+        </tr>
+        <tr>
+            <td>ANITA GARIBALDI</td>
+            <td>HIP-HOP A LÁPIS</td>
+            <td>C., TONI</td>
+        </tr>
+        <tr>
+            <td>ANITA GARIBALDI</td>
+            <td>RACISMO À BRASILEIRA - RAÍZES HISTÓRICAS</td>
+            <td>SILVA, MARTINIANO JOSÉ DA</td>
+        </tr>
+        <tr>
+            <td>ANITA GARIBALDI</td>
+            <td>RACISMO: COTAS E AÇÕES AFIRMATIVAS</td>
+            <td>PESTANA, MAURICIO</td>
+        </tr>
+        <tr>
+            <td>ANITA GARIBALDI</td>
+            <td>REBELIÕES DA SENZALA: QUILOMBOS - INSURREIÇÕES - GUERRILHAS 6ª EDIÇÃO</td>
+            <td>MOURA, CLOVIS</td>
+        </tr>
+        <tr>
+            <td>AUTÊNTICA</td>
+            <td>FORMIGUEIRO, O</td>
+            <td>FERREIRA, JOSE RIBAMAR</td>
+        </tr>
+        <tr>
+            <td>AUTÊNTICA</td>
+            <td>LIMA BARRETO</td>
+            <td>BARRETO, LIMA</td>
+        </tr>
+        <tr>
+            <td>AUTÊNTICA</td>
+            <td>LIMA BARRETO POR JOVENS LEITORES</td>
+            <td> FREITAS, FERNANDA </td>
+        </tr>
+        <tr>
+            <td>AUTÊNTICA</td>
+            <td> TRISTE FIM DE POLICARPO QUARESMA </td>
+            <td> BARRETO, LIMA </td>
+        </tr>
+        <tr>
+            <td>AUTONOMIA LITERÁRIA</td>
+            <td>EUCLIDES SOCIALISTA</td>
+            <td>CUNHA, EUCLIDES DA</td>
+        </tr>
+        <tr>
+            <td>AUTONOMIA LITERÁRIA</td>
+            <td>QUATRO FUTUROS</td>
+            <td>FRASE, PETER</td>
+        </tr>
+        <tr>
+            <td>AUTONOMIA LITERÁRIA</td>
+            <td>RAÇA, CLASSE E REVOLUÇÃO</td>
+            <td>MANOEL, JONES; LANDI, GABRIEL</td>
+        </tr>
+        <tr>
+            <td>AUTONOMIA LITERÁRIA</td>
+            <td>REVOLUÇÃO AFRICANA: UMA ANTOLOGIA DO PENSAMENTO MARXISTA</td>
+            <td>FANON, FRANTZ</td>
+        </tr>
+        <tr>
+            <td>CL-MARTIN CLARET</td>
+            <td>CANUDOS</td>
+            <td>CUNHA, EUCLIDES DA</td>
+        </tr>
+        <tr>
+            <td>CL-MARTIN CLARET</td>
+            <td>MACUNAIMA (MARTIN CLARET)</td>
+            <td>ANDRADE, MARIO DE</td>
+        </tr>
+        <tr>
+            <td>CL-MARTIN CLARET</td>
+            <td>SERTOES, OS - (MARTIN CLARET)</td>
+            <td>CUNHA, EUCLIDES DA</td>
+        </tr>
+        <tr>
+            <td>CL-ROCCO</td>
+            <td>FELICIDADE CLANDESTINA ( EDICAO COMEMORATIVA )</td>
+            <td>LISPECTOR, CLARICE</td>
+        </tr>
+        <tr>
+            <td>ED. SCHWARCZ</td>
+            <td>BAHIA DE TODOS OS SANTOS</td>
+            <td>AMADO, JORGE</td>
+        </tr>
+        <tr>
+            <td>ED. SCHWARCZ</td>
+            <td>BREJO DAS ALMAS</td>
+            <td>ANDRADE, CARLOS DRUMMOND DE</td>
+        </tr>
+        <tr>
+            <td>ED. SCHWARCZ</td>
+            <td>GABRIELA CRAVO E CANELA (EDICAO ECONOMICA)</td>
+            <td>AMADO, JORGE</td>
+        </tr>
+        <tr>
+            <td>ED. SCHWARCZ</td>
+            <td>PORTA GIRATORIA</td>
+            <td>QUINTANA, MÁRIO</td>
+        </tr>
+        <tr>
+            <td>ED. SCHWARCZ</td>
+            <td>TIETA DO AGRESTE</td>
+            <td>AMADO, JORGE</td>
+        </tr>
+        <tr>
+            <td>ED. SCHWARCZ</td>
+            <td>VOSSA INSOLENCIA</td>
+            <td>BILAC, OLAVO</td>
+        </tr>
+        <tr>
+            <td>GLOBAL</td>
+            <td>BATUQUE, SAMBA E MACUMBA</td>
+            <td>MEIRELES, CECÍLIA</td>
+        </tr>
+        <tr>
+            <td>GLOBAL </td>
+            <td>CAMPO GERAL</td>
+            <td>ROSA, JOÃO GUIMARAES </td>
+        </tr>
+        <tr>
+            <td>ED. SCHWARCZ</td>
+            <td>DOM CASMURRO</td>
+            <td>MACHADO, DE ASSIS</td>
+        </tr>
+        <tr>
+            <td>GLOBAL</td>
+            <td>MEMORIAS POSTUMAS DE BRAS CUBAS</td>
+            <td>MACHADO, DE ASSIS </td>
+        </tr>
+        <tr>
+            <td>GLOBAL</td>
+            <td>AUTO DA COMPADECIDA</td>
+            <td>SUASSUNA, ARIANO </td>
+        </tr>
+        <tr>
+            <td>ED. SCHWARCZ</td>
+            <td>VIDAS SECAS</td>
+            <td>RAMOS, GRACILIANO</td>
+        </tr>
+        <tr>
+            <td>GLOBAL</td>
+            <td>A HORA DA ESTRELA</td>
+            <td>LISPECTOR, CLARISSE</td>
+        </tr>
+        <tr>
+            <td>GLOBAL</td>
+            <td>O MORRO DOS VENTOS UIVANTES</td>
+            <td>BRONTE, EMILY</td>
+       </tr>
+        <tr>
+            <td>ED. SCHWARCZ</td>
+            <td>PREPARATIVOS DE VIAGEM</td>
+            <td>QUINTANA, MÁRIO</td>
+        </tr>
+        <tr>
+            <td>ED. SCHWARCZ </td>
+            <td>RECEITA DE ANO-NOVO</td>
+            <td>ANDRADE, CARLOS DRUMMOND DE </td>
+        </tr>
+        <tr>
+            <td>ED. SCHWARCZ </td>
+            <td>REINACOES DE NARIZINHO (EDIÇÃO DE LUXO) </td>
+            <td>LOBATO, MONTEIRO I</td>
+         </tr>
+          <tr>
+            <td>ED. SCHWARCZ</td>
+            <td>RIO EM SHAMAS</td>
+            <td>FRANÇA, ANDERSON</td>
+        </tr>
+        <tr>
+            <td>ED. SCHWARCZ </td>
+            <td>ROSA DO POVO, A</td>
+            <td>ANDRADE, CARLOS DRUMMOND DE </td>
+        </tr>
+        <tr>
+            <td>ED. SCHWARCZ </td>
+            <td>ROTEIRO LIRICO E SENTIMENTAL DA CIDADE DE SAO SEBASTIAO DO RIO DE JANEIRO</td>
+            <td>MORAES, MARCUS VINICIUS DEI</td>
+        </tr>
+        <tr>
+            <td>ED. SCHWARCZ</td>
+            <td>SACI, O</td>
+            <td>LOBATO, MONTEIRO</td>
+        </tr>
+        <tr>
+            <td>ED. SCHWARCZ </td>
+            <td>SAGA</td>
+            <td>VERISSIMO, ERICO LOPES</td>
+        </tr>
+        <tr>
+            <td>ED. SCHWARCZ </td>
+            <td>SE LIGA NO SOM</td>
+            <td>TEPERMAN, RICARDO</td>
+        </tr>
+        <tr>
+            <td>ED. SCHWARCZ</td>
+            <td>SEGREDO E OUTRAS HISTORIAS DE DESCOBERTA, O</td>
+            <td>FAGUNDES, LYGIA DE AZEVEDO</td>
+        </tr>
+        <tr>
+            <td>ED. SCHWARCZ </td>
+            <td>SEMINARIO DOS RATOS</td>
+            <td>FAGUNDES, LYGIA DE AZEVEDO</td>
+        </tr>
+        <tr>
+            <td>ED. SCHWARCZ </td>
+            <td>SOBREVIVENDO NO INFERNO </td>
+            <td>RACIONAIS MC'S</td>
+       </tr>
+        <tr>
+            <td>ED. SCHWARCZ</td>
+            <td>SUOR</td>
+            <td>AMADO, JORGE</td>
+        </tr>
+        <tr>
+            <td>ED. SCHWARCZ </td>
+            <td>TEMPO VIDA POESIA</td>
+            <td>ANDRADE, CARLOS DRUMMOND DE</td>
+        </tr>
+        <tr>
+            <td>ED. SCHWARCZ </td>
+            <td>UMA HISTÓRIA DO SAMBA</td>
+            <td>NETO, LIRA</td>
+       </tr>
+        <tr>
+            <td>ED. SCHWARCZ</td>
+            <td>URSO COM MUSICA NA BARRIGA, O</td>
+            <td>VERISSIMO, ERICO LOPES</td>
+        </tr>
+        <tr>
+            <td>ED. SCHWARCZ </td>
+            <td>VELORIO SEM DEFUNTO</td>
+            <td>QUINTANA, MÁRIO</td>
+        </tr>
+        <tr>
+            <td>ED. SCHWARCZ </td>
+            <td>VERSIPROSA</td>
+            <td>ANDRADE, CARLOS DRUMMOND DE</td>
+       </tr>
+        <tr>
+            <td>ED. SCHWARCZ</td>
+            <td>VIDA DO ELEFANTE BASILIO, A</td>
+            <td>VERISSIMO, ERICO LOPES</td>
+        </tr>
+        <tr>
+            <td>GLOBAL </td>
+            <td>BALADAS PARA EL-REI</td>
+            <td>MEIRELES, CECÍLIA</td>
+        </tr>
+        <tr>
+            <td>GLOBAL </td>
+            <td>CÂMARA CASCUDO E MARIO DE ANDRADE - CARTAS 1924-1944</td>
+            <td>MORAES, MARCOS ANTONIO DE </td>
+       </tr>
+        <tr>
+            <td>GLOBAL </td>
+            <td>CAMPO GERAL</td>
+            <td>ROSA, JOÃO GUIMARAES </td>
+        </tr>
+        <tr>
+            <td>GLOBAL </td>
+            <td>CARNAVAL </td>
+            <td>BANDEIRA, MANUEL </td>
+        </tr>
+        <tr>
+            <td>GLOBAL </td>
+            <td>CECILIA MEIRELES CRONICAS PARA JOVENS </td>
+            <td>CUNHA, ANTONIETA </td>
+       </tr>
+        <tr>
+            <td>GLOBAL </td>
+            <td>COLECIONADOR DE PEDRAS</td>
+            <td>VAZ, SÉRGIO</td>
+        </tr>
+        <tr>
+            <td>GLOBAL </td>
+            <td>CONTANDO A ARTE DE DI CAVALCANTI</td>
+            <td>BRAGA-TORRES, ANGELA</td>
+        </tr>
+        <tr>
+            <td>GLOBAL </td>
+            <td>CONTANDO A ARTE DE TARSILA DO AMARAL</td>
+            <td>BRAGA-TORRES, ANGELA</td>
+       </tr>
+        <tr>
+            <td>GLOBAL </td>
+            <td>DOIDINHO</td>
+            <td>REGO, JOSÉ LINS DO</td>
+        </tr>
+        <tr>
+            <td>GLOBAL </td>
+            <td>FERREIRA GULLAR CRÔNICAS PARA JOVENS</td>
+            <td>CUNHA, ANTONIETA</td>
+        </tr>
+        <tr>
+            <td>GLOBAL </td>
+            <td>ITINERÁRIO DE PASÁRGADA</td>
+            <td>BANDEIRA, MANUEL</td>
+       </tr>
+        <tr>
+            <td>GLOBAL </td>
+            <td>LIMA BARRETO CRÔNICAS PARA JOVENS</td>
+            <td>TUNA, GUSTAVO HENRIQUE</td>
+        </tr>
+        <tr>
+            <td>GLOBAL </td>
+            <td>LITERATURA, PÃO E POESIA</td>
+            <td>VAZ, SÉRGIO</td>
+        </tr>
+        <tr>
+            <td>GLOBAL </td>
+            <td>MELHORES CONTOS JOÃO GUIMARÃES ROSA</td>
+            <td>ROSA, JOÃO GUIMARAES</td>
+       </tr>
+        <tr>
+            <td>GLOBAL </td>
+            <td>MELHORES CONTOS LIMA BARRETO</td>
+            <td>BARBOSA, FRANCISCO DE ASSIS</td>
+        </tr>
+        <tr>
+            <td>GLOBAL </td>
+            <td>MELHORES CONTOS LYGIA FAGUNDES TELLES</td>
+            <td>PORTELLA, EDUARDO</td>
+        </tr>
+        <tr>
+            <td>GLOBAL </td>
+            <td>MELHORES CRÔNICAS EUCLIDES DA CUNHA</td>
+            <td>LUCCHESI, MARCO</td>
+       </tr>
+        <tr>
+            <td>GLOBAL </td>
+            <td>MELHORES CRÔNICAS RACHEL DE QUEIRÓZ</td>
+            <td>HOLANDA, HELOISA BUARQUE DE</td>
+        </tr>
+        <tr>
+            <td>GLOBAL </td>
+            <td> MELHORES POEMAS JOÃO CABRAL DE MELO NETO</td>
+            <td>SECCHIN, ANTONIO CARLOS</td>
+        </tr>
+        <tr>
+            <td>GLOBAL </td>
+            <td>MELHORES POEMAS MARIO DE ANDRADE</td>
+            <td>MELLO E SOUZA, GILDA DE</td>
+       </tr>
+        <tr>
+            <td>GLOBAL </td>
+            <td>MELHORES POEMAS MÁRIO QUINTANA</td>
+            <td>CUNHA, FAUSTO</td>
+        </tr>
+        <tr>
+            <td>GLOBAL </td>
+            <td>MELHORES POEMAS MENOTTI DEL PICCHIA</td>
+            <td>FRIAS, RUBENS EDUARDO FERREIRA</td>
+        </tr>
+        <tr>
+            <td>GLOBAL </td>
+            <td>MENINO DE ENGENHO</td>
+            <td>REGO, JOSÉ LINS DO</td>
+       </tr>
+        <tr>
+            <td>GLOBAL </td>
+            <td>MEUS POEMAS PREFERIDOS</td>
+            <td>BANDEIRA, MANUEL</td>
+        </tr>
+        <tr>
+            <td>GLOBAL </td>
+            <td>MORENA, PENA DE AMOR</td>
+            <td>MEIRELES, CECÍLIA</td>
+        </tr>
+        <tr>
+            <td>GLOBAL </td>
+            <td>NA RUA DO SABÃO</td>
+            <td>BANDEIRA, MANUEL</td>
+       </tr>
+        <tr>
+            <td>GLOBAL </td>
+            <td>NUNCA MAIS... E POEMAS DOS POEMAS</td>
+            <td>MEIRELES, CECÍLIA</td>
+        </tr>
+        <tr>
+            <td>GLOBAL </td>
+            <td>O AERONAUTA</td>
+            <td>MEIRELES, CECÍLIA</td>
+        </tr>
+        <tr>
+            <td>GLOBAL </td>
+            <td>O NEGRO NO BRASIL DE HOJE</td>
+            <td>MUNANGA, KABENGELE</td>
+       </tr>
+        <tr>
+            <td>GLOBAL </td>
+            <td>O RITMO DISSOLUTO</td>
+            <td>BANDEIRA, MANUEL</td>
+        </tr>
+        <tr>
+            <td>GLOBAL </td>
+            <td>OU ISTO, OU AQUILO</td>
+            <td>MEIRELES, CECÍLIA</td>
+        </tr>
+        <tr>
+            <td>GLOBAL </td>
+            <td>POEMAS DE VIAGENS </td>
+            <td>MEIRELES, CECÍLIA </td>
+       </tr>
+        <tr>
+            <td>GLOBAL </td>
+            <td>POEMAS ITALIANO</td>
+            <td>MEIRELES, CECÍLIA </td>
+        </tr>
+        <tr>
+            <td>GLOBAL </td>
+            <td>POEMAS TRADUZIDOS </td>
+            <td>BANDEIRA, MANUEL </td>
+        </tr>
+        <tr>
+            <td>GLOBAL </td>
+            <td>PRIMEIRAS ESTÓRIAS </td>
+            <td>ROSA, JOÃO GUIMARAES </td>
+        </tr>
+        <tr>
+            <td>GLOBAL </td>
+            <td>TESTAMENTO DE PASÁRGADA - ANTOLOGIA POÉTICA</td>
+            <td>BANDEIRA, MANUEL</td>
+        </tr>
+        <tr>
+            <td>GLOBAL </td>
+            <td>TREM DE FERRO</td>
+            <td>BANDEIRA, MANUEL </td>
+        </tr>
+        <tr>
+            <td>GRUPO SOMOS-ÁTICA </td>
+            <td>MODERNISMO NO BRASIL: PANORAMA DAS ARTES VISUAIS</td>
+            <td>MEIRA, BEA</td>
+       </tr>
+        <tr>
+            <td>GRUPO SOMOS-SCIPIONE</td>
+            <td>HISTÓRIAS DO MODERNISMO</td>
+            <td>ANDRADE, MÁRIO DE; MACHADO, ANTÔNIO DE ALCÂNTARA; REBELO, MARQUES ET AL.</td>
+        </tr>
+        <tr>
+            <td>IBIS LIBRIS </td>
+            <td>21 GRAMAS</td>
+            <td>VIDAL, MARCIO</td>
+        </tr>
+        <tr>
+            <td>IBIS LIBRIS </td>
+            <td>A ESTANTE DOS POETAS</td>
+            <td>VARIOS </td>
+       </tr>
+        <tr>
+            <td>IBIS LIBRIS </td>
+            <td>HISTÓRIAS DO MODERNISMO</td>
+            <td>VIDAL, MARCIO</td>
+        </tr>
+        <tr>
+            <td>LITERARUA </td>
+            <td>#POUCASPALAVRAS</td>
+            <td>INQUÉRITO, RENAN </td>
+        </tr>
+        <tr>
+            <td>LITERARUA </td>
+            <td>A MAIS LONGA DURAÇÃO DA JUVENTUDE </td>
+            <td>MOTA, URARIANO </td>
+       </tr>
+        <tr>
+            <td>LITERARUA </td>
+            <td>ANTOLOGIA INSPIRADA NO UNIVERSO DA MIXTAPE PRA QUEM JÁ MORDEU UM CACHORRO POR COMIDA, ATÉ QUE EU CHEGUEI LONGE..</td>
+            <td>EMICIDA </td>
+        </tr>
+        <tr>
+            <td>LITERARUA </td>
+            <td>CAFÉ </td>
+            <td>DONA JACIRA </td>
+        </tr>
+        <tr>
+            <td>LITERARUA </td>
+            <td>IDEIAS QUE RIMAM MAIS QUE PALAVRAS </td>
+            <td>RASHID </td>
+       </tr>
+        <tr>
+            <td>LITERARUA </td>
+            <td>MEB</td>
+            <td>MARKE, ERIC</td>
+        </tr>
+        <tr>
+            <td>LITERARUA </td>
+            <td>NELSON TRIUNFO: DO SERTÃO AO HIP-HOP</td>
+            <td>YOSHINAGA, GILBERTO</td>
+        </tr>
+        <tr>
+            <td>LITERARUA </td>
+            <td>O HIP-HOP ESTÁ MORTO : HISTÓRIA DO HIP HOP NO BRASIL</td>
+            <td>C., TONI</td>
+       </tr>
+        <tr>
+            <td>LITERARUA </td>
+            <td>O NÔMADE</td>
+            <td>GASPAR</td>
+        </tr>
+        <tr>
+            <td>LITERARUA </td>
+            <td>POESIA PRA ENCHER A LAJE 2.0</td>
+            <td>INQUERITO, RENAN</td>
+        </tr>
+        <tr>
+            <td>LITERARUA </td>
+            <td>SANTO AMARO</td>
+            <td>DIAS, LUIZ ANTONIO; SOUSA, RAFAEL LOPES DE</td>
+       </tr>
+        <tr>
+            <td>LITERARUA </td>
+            <td>TINTA LOKA</td>
+            <td>MAC, BONGA; SANTANA, TAMIRES</td>
+        </tr>
+        <tr>
+            <td>NOVA FRONTEIRA</td>
+            <td>A HISTÓRIA DO AMOR DE FERNANDO</td>
+            <td>SUASSUNA, ARIANO</td>
+        </tr>
+        <tr>
+            <td>NOVA FRONTEIRA </td>
+            <td>A PENA E A LEI</td>
+            <td>SUASSUNA, ARIANO </td>
+        </tr>
+        <tr>
+            <td>NOVA FRONTEIRA</td>
+            <td>A PENSÃO DE DONA BERTA E OUTRAS HISTÓRIAS PARA JOVENS</td>
+            <td>SUASSUNA, ARIANO</td>
+        </tr>
+        <tr>
+            <td>NOVA FRONTEIRA</td>
+            <td> ÁLBUM DE FAMÍLIA</td>
+            <td> RODRIGUES, NELSON</td>
+        </tr>
+        <tr>
+            <td>NOVA FRONTEIRA</td>
+            <td>ANJO NEGRO</td>
+            <td>RODRIGUES, NELSON</td>
+       </tr>
+        <tr>
+            <td>NOVA FRONTEIRA</td>
+            <td>ANTI-NELSON RODRIGUES</td>
+            <td>RODRIGUES, NELSON</td>
+        </tr>
+        <tr>
+            <td>NOVA FRONTEIRA</td>
+            <td>ANTOLOGIA POÉTICA - MÁRIO QUINTANA</td>
+            <td> QUINTANA, MÁRIO</td>
+        </tr>
+        <tr>
+            <td>NOVA FRONTEIRA</td>
+            <td>AS CONCHAMBRANÇAS DE QUADERNA</td>
+            <td>SUASSUNA, ARIANO</td>
+       </tr>
+        <tr>
+            <td>NOVA FRONTEIRA</td>
+            <td>BEIJO NO ASFALTO,O GRAPHIC NOV</td>
+            <td>RODRIGUES, NELSON</td>
+        </tr>
+        <tr>
+            <td>NOVA FRONTEIRA</td>
+            <td>BOCA DE OURO</td>
+            <td>RODRIGUES, NELSON</td>
+        </tr>
+        <tr>
+            <td>NOVA FRONTEIRA</td>
+            <td>DOROTEIA (2012)</td>
+            <td>RODRIGUES, NELSON</td>
+       </tr>
+        <tr>
+            <td>NOVA FRONTEIRA</td>
+            <td>MELHOR DE MÁRIO DE ANDRADE,O</td>
+            <td>ANDRADE, MARIO DE</td>
+        </tr>
+        <tr>
+            <td>NOVA FRONTEIRA</td>
+            <td>O MELHOR DE NELSON RODRIGUES</td>
+            <td>RODRIGUES, NELSON</td>
+        </tr>
+        <tr>
+            <td>NOVA FRONTEIRA</td>
+            <td>O SANTO E A PORCA</td>
+            <td>SUASSUNA, ARIANO</td>
+       </tr>
+        <tr>
+            <td>NOVA FRONTEIRA</td>
+            <td>O SEDUTOR DO SERTÃO</td>
+            <td>SUASSUNA, ARIANO</td>
+        </tr>
+        <tr>
+            <td>NOVA FRONTEIRA</td>
+            <td>POEMAS ESCOLHIDOS - COLEÇÃO 50</td>
+            <td>FERREIRA, JOSE RIBAMAR</td>
+        </tr>
+        <tr>
+            <td>NOVA FRONTEIRA</td>
+            <td>SENHORA DOS AFOGADOS</td>
+            <td>RODRIGUES, NELSON</td>
+       </tr>
+        <tr>
+            <td>PERSPECTIVA</td>
+            <td>HAROLDO DE CAMPOS, TRADUTOR E TRADUZIDO</td>
+            <td>GUERINI, ANDRÉIA. COSTA, WALTER CARLOS. MELLO, SIMONE HOMEM DE MELLO (ORGS.)</td>
+        </tr>
+        <tr>
+            <td>PERSPECTIVA </td>
+            <td>O QUILOMBISMO: DOCUMENTOS DE UMA MILITÂNCIA PAN-AFRICANISTA</td>
+            <td>NASCIMENTO, ABDIAS </td>
+        </tr>
+        <tr>
+            <td>PERSPECTIVA </td>
+            <td>O RACISMO, UMA INTRODUÇÃO </td>
+            <td> WIEVIORKA, MICHEL </td>
+       </tr>
+    </table><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><p>Endereço: R. José Clóvis de Castro, s/n - Vila da Saúde, São Paulo - SP, 04290-100<br>Horas:8:00 Aberto ⋅ Fecha às 18:00<br>Telefone: (11) 5061-3320</p>
+
+    <script type="text/javascript">
+      function toggleColumn(columnIndex) {
+          var table = document.getElementById("bookTable");
+          var rows = table.getElementsByTagName("tr");
+          for (var i = 0; i < rows.length; i++) {
+              var cells = rows[i].getElementsByTagName("th");
+              if (cells.length === 0) {
+                  cells = rows[i].getElementsByTagName("td");
+              }
+              if (cells[columnIndex].style.display === "none") {
+                  cells[columnIndex].style.display = "table-cell";
+              } else {
+                  cells[columnIndex].style.display = "none";
+              }
+          }
+      }
+
+      function searchTitle() {
+          var input = document.getElementById("searchInput");
+          var filter = input.value.toUpperCase();
+          var table = document.getElementById("bookTable");
+          var rows = table.getElementsByTagName("tr");
+
+          for (var i = 1; i < rows.length; i++) {
+              var titleCell = rows[i].getElementsByTagName("td")[1];
+              if (titleCell) {
+                  var titleText = titleCell.textContent || titleCell.innerText;
+                  if (titleText.toUpperCase().indexOf(filter) > -1) {
+                      rows[i].style.display = "";
+                  } else {
+                      rows[i].style.display = "none";
+                  }
+              }       
+          }
+      }
+    </script>
+
+</body>
+</html>
